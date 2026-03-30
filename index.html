@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Security Reports</title>
+  <title>Misbar Security</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -375,14 +375,11 @@
   <nav class="navigation" id="navigation">
     <div class="progress-bar" id="progressBar"></div>
     <div class="nav-container">
-      <a href="#" class="nav-logo">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
-        <span>REPORTS</span>
-      </a>
+    <a href="#" class="nav-logo">
+      <img src="images/Misbar_logo.png" alt="Logo" height="32" style="display:block;">
+      <span>MISBAR</span>
+    </a>
       <ul class="nav-links">
-        <li><a href="#reports">Browse</a></li>
         <li><a href="#reports">Latest</a></li>
       </ul>
     </div>
@@ -392,11 +389,12 @@
   <section class="hero-section">
     <div class="hero-content scroll-reveal">
       <h1 class="hero-title">
-        Monthly <span class="emerald-text">Security</span> Reports
+      <span class="emerald-text">Security</span> Reports
       </h1>
       <p class="hero-subtitle">
-        Browse and download published threat intelligence, vulnerability assessments,
-        and offensive security research reports.
+      Monthly intelligence
+      covering exploited CVEs, emerging malware, and offensive security
+      research from the field.
       </p>
       <!-- Search -->
       <div class="search-wrapper">
@@ -413,20 +411,17 @@
   <!-- Filters -->
   <div class="filters" id="filters">
     <button class="filter-btn active" onclick="setFilter('all', this)">All Reports</button>
-    <button class="filter-btn" onclick="setFilter('CVE', this)">CVE Analysis</button>
-    <button class="filter-btn" onclick="setFilter('Pentest', this)">Pentesting</button>
-    <button class="filter-btn" onclick="setFilter('Threat Intel', this)">Threat Intel</button>
-    <button class="filter-btn" onclick="setFilter('Malware', this)">Malware</button>
-    <button class="filter-btn" onclick="setFilter('Web', this)">Web Security</button>
+    <button class="filter-btn" onclick="setFilter('2026', this)">2026</button>
+    <button class="filter-btn" onclick="setFilter('2025', this)">2025</button>
   </div>
 
   <!-- Reports Section -->
   <section id="reports" class="reports-section">
     <div class="scroll-reveal">
       <p class="section-label">Published Research</p>
-      <h2 class="section-title">Available <span class="emerald-text">Reports</span></h2>
+      <h2 class="section-title">Access the latest threat <span class="emerald-text">Reports</span></h2>
       <p class="section-subtitle">
-        All reports are authored by the security team and reflect real-world findings and threat analysis.
+        All reports are built from live threat intelligence, real-world exploitation attempts, and active campaign monitoring.
       </p>
     </div>
 
@@ -497,12 +492,10 @@
   <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <div class="nav-logo" style="display:flex;align-items:center;gap:.6rem;font-weight:700;letter-spacing:2px;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
-        REPORTS
-      </div>
+    <div class="footer-logo">
+      <img src="images/Misbar_logo.png" alt="Logo" height="26" style="display:block;">
+      MISBAR
+    </div>
       <ul class="footer-links">
         <li><a href="#">Privacy</a></li>
         <li><a href="#">Terms</a></li>
@@ -519,64 +512,14 @@
     // ✏️ ADD YOUR MONTHLY REPORTS HERE
     const reports = [
       {
-        title: "March 2026 Security Digest",
-        desc: "Comprehensive threat landscape overview covering critical CVEs, ransomware campaigns, and offensive security findings from March 2026.",
-        tag: "Threat Intel",
-        month: "March",
-        year: "2026",
-        date: "Mar 2026",
-        size: "2.4 MB",
-        file: "reports/march-2026.pdf"
-      },
-      {
-        title: "February 2026 Threat Report",
-        desc: "Monthly analysis of detected threats, vulnerability exploits, and emerging attack techniques observed during February.",
-        tag: "Threat Intel",
-        month: "February",
-        year: "2026",
-        date: "Feb 2026",
-        size: "2.1 MB",
-        file: "reports/february-2026.pdf"
-      },
-      {
-        title: "January 2026 Research Brief",
-        desc: "First month analysis including CVE findings, zero-day disclosures, and offensive security assessments.",
-        tag: "CVE",
-        month: "January",
+        title: "January 2026 Monthly Threat Report",
+        desc: "A comprehensive look at cyber threats spanning January and the first half of February 2026, covering exploited vulnerabilities and key threat intelligence highlights.",
+        tag: "2026",
+        month: "Januray",
         year: "2026",
         date: "Jan 2026",
-        size: "1.9 MB",
-        file: "reports/january-2026.pdf"
-      },
-      {
-        title: "December 2025 Security Summary",
-        desc: "Year-end threat intelligence covering major breaches, malware campaigns, and vulnerability trends.",
-        tag: "Malware",
-        month: "December",
-        year: "2025",
-        date: "Dec 2025",
-        size: "2.7 MB",
-        file: "reports/december-2025.pdf"
-      },
-      {
-        title: "November 2025 Pentest Digest",
-        desc: "Summary of penetration testing findings from November including web application vulnerabilities and misconfigurations.",
-        tag: "Pentest",
-        month: "November",
-        year: "2025",
-        date: "Nov 2025",
-        size: "1.6 MB",
-        file: "reports/november-2025.pdf"
-      },
-      {
-        title: "October 2025 Web Security Report",
-        desc: "Focused analysis on web application vulnerabilities, API security issues, and exploit techniques.",
-        tag: "Web",
-        month: "October",
-        year: "2025",
-        date: "Oct 2025",
-        size: "1.4 MB",
-        file: "reports/october-2025.pdf"
+        size: "3.67 MB",
+        file: "Monthly-Threat-Report-January.pdf"
       },
     ];
 
