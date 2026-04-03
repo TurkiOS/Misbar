@@ -29,7 +29,6 @@
       min-height: 100vh; overflow-x: hidden;
     }
 
-    /* ── COSMIC BG ── */
     .cosmic-bg {
       position: fixed; inset: 0; z-index: 0;
       background:
@@ -54,7 +53,6 @@
         radial-gradient(1.5px 1.5px at 67% 12%, rgba(16,185,129,0.5) 0%, transparent 100%);
     }
 
-    /* ── NAV ── */
     .navigation {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       transition: background 0.3s, backdrop-filter 0.3s, border-color 0.3s;
@@ -88,7 +86,6 @@
     }
     .nav-links a:hover { color: var(--emerald); }
 
-    /* ── HERO ── */
     .hero-section {
       position: relative; z-index: 1;
       min-height: 55vh; display: flex; align-items: center; justify-content: center;
@@ -106,7 +103,6 @@
       margin-bottom: 2.5rem; font-family: 'Inter', sans-serif;
     }
 
-    /* ── SEARCH ── */
     .search-wrapper { display: flex; justify-content: center; margin-bottom: 0.5rem; }
     .search-box { position: relative; width: 100%; max-width: 520px; }
     .search-box input {
@@ -120,7 +116,6 @@
     .search-box input:focus { border-color: var(--emerald); box-shadow: 0 0 0 3px var(--emerald-dim); }
     .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
 
-    /* ── FILTERS ── */
     .filters {
       display: flex; justify-content: center; flex-wrap: wrap;
       gap: 0.6rem; padding: 0 2rem 2rem; position: relative; z-index: 1;
@@ -135,7 +130,6 @@
       background: var(--emerald-dim); border-color: var(--emerald); color: var(--emerald);
     }
 
-    /* ── SECTION ── */
     .reports-section { position: relative; z-index: 1; padding: 0 2rem 80px; }
     .section-label {
       text-align: center; color: var(--emerald);
@@ -148,14 +142,12 @@
       font-size: 1rem; line-height: 1.7; max-width: 600px; margin: 0 auto 3rem;
     }
 
-    /* ── GRID ── */
     .reports-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 1.8rem; max-width: 1200px; margin: 0 auto;
     }
 
-    /* ── CARD ── */
     .report-card {
       background: var(--surface);
       border: 1px solid rgba(255,255,255,0.07);
@@ -176,7 +168,6 @@
     }
     .report-card:hover::before { opacity: 1; }
 
-    /* ── PDF COVER — full A4 aspect ratio, no crop ── */
     .card-cover {
       width: 100%;
       aspect-ratio: 1 / 1.414;
@@ -195,7 +186,6 @@
     .card-cover canvas.loaded { opacity: 1; }
     .report-card:hover .card-cover canvas { transform: scale(1.02); }
 
-    /* Shimmer skeleton */
     .cover-skeleton {
       position: absolute; inset: 0;
       background: linear-gradient(
@@ -218,7 +208,6 @@
       color: rgba(16,185,129,0.35); text-transform: uppercase;
     }
 
-    /* Gradient overlay + badges over the cover */
     .cover-overlay {
       position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
       background: linear-gradient(to top, rgba(6,13,15,0.92) 0%, transparent 100%);
@@ -233,7 +222,6 @@
     }
     .cover-size-label { font-size: 0.7rem; color: #6b7280; font-family: 'Inter', sans-serif; }
 
-    /* ── CARD BODY ── */
     .card-body { padding: 1.35rem 1.5rem 1.6rem; display: flex; flex-direction: column; flex: 1; }
     .card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.8rem; }
     .card-tag {
@@ -251,7 +239,6 @@
       line-height: 1.7; flex: 1; margin-bottom: 1.25rem;
     }
 
-    /* ── BUTTONS ── */
     .card-actions { display: flex; gap: 0.65rem; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 6px;
@@ -268,15 +255,12 @@
     }
     .btn-secondary:hover { background: rgba(255,255,255,0.11); color: var(--text); }
 
-    /* ── EMPTY STATE ── */
     .empty-state { text-align: center; padding: 5rem 2rem; color: var(--muted); display: none; }
     .empty-state svg { width: 48px; height: 48px; margin-bottom: 1rem; opacity: 0.4; }
 
-    /* ── SCROLL REVEAL ── */
     .scroll-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── FOOTER ── */
     footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2rem; }
     .footer-content {
       max-width: 1200px; margin: 0 auto;
@@ -307,7 +291,6 @@
 
   <div class="cosmic-bg" id="cosmicBg"></div>
 
-  <!-- Navigation -->
   <nav class="navigation" id="navigation">
     <div class="progress-bar" id="progressBar"></div>
     <div class="nav-container">
@@ -321,7 +304,6 @@
     </div>
   </nav>
 
-  <!-- Hero -->
   <section class="hero-section">
     <div class="hero-content scroll-reveal">
       <h1 class="hero-title">
@@ -342,14 +324,12 @@
     </div>
   </section>
 
-  <!-- Filters -->
   <div class="filters">
     <button class="filter-btn active" onclick="setFilter('all', this)">All Reports</button>
     <button class="filter-btn" onclick="setFilter('2026', this)">2026</button>
     <button class="filter-btn" onclick="setFilter('2025', this)">2025</button>
   </div>
 
-  <!-- Reports Section -->
   <section id="reports" class="reports-section">
     <div class="scroll-reveal">
       <p class="section-label">Published Research</p>
@@ -374,69 +354,67 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-logo">
         <img src="image/Misbar_logo.png" alt="Logo" height="18" style="display:block;">
         MISBAR
       </div>
-<ul class="footer-links">
-  <li>
-    <a href="https://x.com/MisbarSec" target="_blank">
-      <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-      </svg>
-    </a>
-  </li>
-  <li>
-    <a href="https://whatsapp.com/channel/0029Vb6BZRV84Om7iRZKwZ12" target="_blank">
-      <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">>
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
-    </a>
-  </li>
-</ul>
+      <ul class="footer-links">
+        <li>
+          <a href="https://x.com/MisbarSec" target="_blank" rel="noopener noreferrer">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://whatsapp.com/channel/0029Vb6BZRV84Om7iRZKwZ12" target="_blank" rel="noopener noreferrer">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
       <div class="footer-copy">© 2026 MISBAR. All rights reserved.</div>
     </div>
   </footer>
 
   <script>
-    // PDF.js worker
     pdfjsLib.GlobalWorkerOptions.workerSrc =
       'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-    // ─────────────────────────────────────────────
-    // ✏️  ADD YOUR REPORTS HERE
-    // ─────────────────────────────────────────────
     const reports = [
       {
         title: "January 2026 Monthly Threat Report",
-        desc:  "Threat intelligence digest covering January through mid-February 2026 — tracking active CVEs, adversary campaigns, newly disclosed vulnerabilities, and significant security incidents observed across the period.",
-        tag:   "2026",
-        date:  "Jan 2026",
-        size:  "3.67 MB",
-        file:  "Monthly-Threat-Report-January.pdf"
+        desc: "Threat intelligence digest covering January through mid-February 2026 — tracking active CVEs, adversary campaigns, newly disclosed vulnerabilities, and significant security incidents observed across the period.",
+        tag: "2026",
+        date: "Jan 2026",
+        size: "3.67 MB",
+        file: "Monthly-Threat-Report-January.pdf"
       },
       {
-         title: "March 2026 Monthly Threat Report",
-         desc:  "A monthly cybersecurity intelligence report covering ransomware activity, vulnerability trends, KEVs, and the vendors most affected across the 2026 threat landscape.",
-         tag:   "2026",
-         date:  "Mar 2026",
-         size:  "2.03 MB",
-         file:  "Monthly-Threat-Report-March.pdf"
-       },
+        title: "March 2026 Monthly Threat Report",
+        desc: "A monthly cybersecurity intelligence report covering ransomware activity, vulnerability trends, KEVs, and the vendors most affected across the 2026 threat landscape.",
+        tag: "2026",
+        date: "Mar 2026",
+        size: "2.03 MB",
+        file: "Monthly-Threat-Report-March.pdf"
+      }
     ];
 
-    let activeFilter     = 'all';
-    const renderedCovers = new Set();
+    let activeFilter = 'all';
 
     function renderReports(data) {
-      const grid  = document.getElementById('reportsGrid');
+      const grid = document.getElementById('reportsGrid');
       const empty = document.getElementById('emptyState');
       grid.innerHTML = '';
 
-      if (!data.length) { empty.style.display = 'block'; return; }
+      if (!data.length) {
+        empty.style.display = 'block';
+        return;
+      }
+
       empty.style.display = 'none';
 
       data.forEach((r, i) => {
@@ -445,7 +423,7 @@
         card.className = 'report-card scroll-reveal';
         card.style.transitionDelay = (i % 3) * 90 + 'ms';
         card.dataset.index = globalIdx;
-        card.dataset.file  = r.file;
+        card.dataset.file = r.file;
 
         card.innerHTML = `
           <div class="card-cover" id="cover-${globalIdx}">
@@ -477,7 +455,7 @@
             <h3 class="card-title">${r.title}</h3>
             <p class="card-desc">${r.desc}</p>
             <div class="card-actions">
-              <a class="btn btn-primary" href="${r.file}" target="_blank">
+              <a class="btn btn-primary" href="${r.file}" target="_blank" rel="noopener noreferrer">
                 <svg width="14" height="14" fill="none" stroke="currentColor"
                      stroke-width="2.5" viewBox="0 0 24 24">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
@@ -504,12 +482,20 @@
     }
 
     function filterReports() {
-      const q = document.getElementById('searchInput').value.toLowerCase();
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
       let filtered = reports;
-      if (activeFilter !== 'all') filtered = filtered.filter(r => r.tag === activeFilter);
-      if (q) filtered = filtered.filter(r =>
-        r.title.toLowerCase().includes(q) || r.desc.toLowerCase().includes(q)
-      );
+
+      if (activeFilter !== 'all') {
+        filtered = filtered.filter(r => r.tag === activeFilter);
+      }
+
+      if (q) {
+        filtered = filtered.filter(r =>
+          r.title.toLowerCase().includes(q) ||
+          r.desc.toLowerCase().includes(q)
+        );
+      }
+
       renderReports(filtered);
     }
 
@@ -521,7 +507,9 @@
     }
 
     const scrollObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
     }, { threshold: 0.07, rootMargin: '0px 0px -50px 0px' });
 
     document.querySelectorAll('.scroll-reveal').forEach(el => scrollObserver.observe(el));
@@ -529,11 +517,11 @@
     const coverObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
+
         const card = entry.target;
-        const idx  = card.dataset.index;
+        const idx = card.dataset.index;
         const file = card.dataset.file;
-        if (renderedCovers.has(idx)) return;
-        renderedCovers.add(idx);
+
         coverObserver.unobserve(card);
         renderPDFCover(idx, file);
       });
@@ -541,34 +529,40 @@
 
     function renderPDFCover(idx, pdfPath) {
       const skeleton = document.getElementById('skeleton-' + idx);
-      const canvas   = document.getElementById('canvas-'   + idx);
-      const cover    = document.getElementById('cover-'    + idx);
+      const canvas = document.getElementById('canvas-' + idx);
+      const cover = document.getElementById('cover-' + idx);
+
+      if (!canvas || !cover) return;
 
       pdfjsLib.getDocument(pdfPath).promise
         .then(pdf => pdf.getPage(1))
         .then(page => {
-          const containerW = cover ? cover.offsetWidth : 320;
-          const baseVP     = page.getViewport({ scale: 1 });
-          const scale      = containerW / baseVP.width;
-          const viewport   = page.getViewport({ scale });
-          canvas.width  = viewport.width;
+          const containerW = cover.offsetWidth || 320;
+          const baseVP = page.getViewport({ scale: 1 });
+          const scale = containerW / baseVP.width;
+          const viewport = page.getViewport({ scale });
+
+          canvas.width = viewport.width;
           canvas.height = viewport.height;
-          return page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+
+          const ctx = canvas.getContext('2d');
+          return page.render({ canvasContext: ctx, viewport }).promise;
         })
         .then(() => {
           if (skeleton) skeleton.classList.add('hidden');
-          if (canvas)   canvas.classList.add('loaded');
+          canvas.classList.add('loaded');
         })
         .catch(() => {
-          if (skeleton)
+          if (skeleton) {
             skeleton.innerHTML =
               '<span class="skeleton-label" style="color:rgba(239,68,68,0.55)">Preview unavailable</span>';
+          }
         });
     }
 
     const nav = document.getElementById('navigation');
-    const pb  = document.getElementById('progressBar');
-    const bg  = document.getElementById('cosmicBg');
+    const pb = document.getElementById('progressBar');
+    const bg = document.getElementById('cosmicBg');
 
     window.addEventListener('scroll', () => {
       const st = window.pageYOffset;
@@ -576,7 +570,7 @@
       pb.style.width = (st / sh * 100) + '%';
       nav.classList.toggle('scrolled', st > 50);
       bg.style.transform = `scale(${1 + st / 3000})`;
-      bg.style.opacity   = Math.max(1 - st / 3000, 0.3);
+      bg.style.opacity = Math.max(1 - st / 3000, 0.3);
     }, { passive: true });
 
     renderReports(reports);
