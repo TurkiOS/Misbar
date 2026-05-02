@@ -176,7 +176,6 @@
     }
     .report-card:hover::before { opacity: 1; }
  
-    /* === FIX: cover area no longer truncates the PDF; meta moved out of the cover === */
     .card-cover {
       width: 100%;
       aspect-ratio: 1 / 1.414;
@@ -186,14 +185,17 @@
       border-bottom: 1px solid rgba(16,185,129,0.15);
       flex-shrink: 0;
     }
-    .card-cover canvas {
+    .card-cover canvas,
+    .card-cover img.cover-img {
       position: absolute; top: 0; left: 0;
       width: 100% !important; height: 100% !important;
-      object-fit: contain; display: block;
+      object-fit: cover; display: block;
       opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease;
     }
-    .card-cover canvas.loaded { opacity: 1; }
-    .report-card:hover .card-cover canvas { transform: scale(1.02); }
+    .card-cover canvas.loaded,
+    .card-cover img.cover-img.loaded { opacity: 1; }
+    .report-card:hover .card-cover canvas,
+    .report-card:hover .card-cover img.cover-img { transform: scale(1.02); }
  
     .cover-skeleton {
       position: absolute; inset: 0;
@@ -218,7 +220,6 @@
       color: rgba(16,185,129,0.45);
     }
  
-    /* Meta strip — now BELOW the cover, not on top of it */
     .cover-meta {
       display: flex; align-items: center; justify-content: space-between;
       padding: 10px 16px;
@@ -407,7 +408,8 @@
         tag: "2026",
         date: "Apr 2026",
         size: "1.52 MB",
-        file: "Monthly-Threat-Report-April.pdf"
+        file: "Monthly-Threat-Report-April.pdf",
+        cover: "cover-apr-2026.png"
       },
       {
         title: "التقرير الشهري — مارس 2026",
@@ -423,7 +425,8 @@
         tag: "2026",
         date: "Feb 2026",
         size: "1.21 MB",
-        file: "Monthly-Threat-Report-February.pdf"
+        file: "Monthly-Threat-Report-February.pdf",
+        cover: "cover-feb-2026.png"
       },
       {
         title: "التقرير الشهري — يناير 2026",
@@ -456,6 +459,12 @@
         card.style.transitionDelay = (i % 3) * 90 + 'ms';
         card.dataset.index = globalIdx;
         card.dataset.file = r.file;
+        if (r.cover) card.dataset.cover = r.cover;
+ 
+        // If a pre-rendered cover image exists, use <img>; otherwise use <canvas> for PDF.js
+        const coverElement = r.cover
+          ? `<img class="cover-img" id="img-${globalIdx}" alt="${r.title}" loading="lazy">`
+          : `<canvas id="canvas-${globalIdx}"></canvas>`;
  
         card.innerHTML = `
           <div class="card-cover" id="cover-${globalIdx}">
@@ -473,7 +482,7 @@
               </svg>
               <span class="skeleton-label">جارٍ تحميل الغلاف…</span>
             </div>
-            <canvas id="canvas-${globalIdx}"></canvas>
+            ${coverElement}
           </div>
  
           <div class="cover-meta">
@@ -554,11 +563,36 @@
         const card = entry.target;
         const idx = card.dataset.index;
         const file = card.dataset.file;
+        const cover = card.dataset.cover;
  
         coverObserver.unobserve(card);
-        renderPDFCover(idx, file);
+ 
+        // Use pre-rendered image if available, otherwise fall back to PDF.js
+        if (cover) {
+          loadCoverImage(idx, cover);
+        } else {
+          renderPDFCover(idx, file);
+        }
       });
     }, { threshold: 0.05, rootMargin: '120px 0px 120px 0px' });
+ 
+    function loadCoverImage(idx, imagePath) {
+      const skeleton = document.getElementById('skeleton-' + idx);
+      const img = document.getElementById('img-' + idx);
+      if (!img) return;
+ 
+      img.onload = () => {
+        if (skeleton) skeleton.classList.add('hidden');
+        img.classList.add('loaded');
+      };
+      img.onerror = () => {
+        if (skeleton) {
+          skeleton.innerHTML =
+            '<span class="skeleton-label" style="color:rgba(239,68,68,0.55)">المعاينة غير متاحة</span>';
+        }
+      };
+      img.src = imagePath;
+    }
  
     function renderPDFCover(idx, pdfPath) {
       const skeleton = document.getElementById('skeleton-' + idx);
