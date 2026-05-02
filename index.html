@@ -176,6 +176,7 @@
     }
     .report-card:hover::before { opacity: 1; }
  
+    /* === FIX: cover area no longer truncates the PDF; meta moved out of the cover === */
     .card-cover {
       width: 100%;
       aspect-ratio: 1 / 1.414;
@@ -217,12 +218,14 @@
       color: rgba(16,185,129,0.45);
     }
  
-    .cover-overlay {
-      position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
-      background: linear-gradient(to top, rgba(6,13,15,0.92) 0%, transparent 100%);
-      padding: 1.4rem 1.1rem 0.75rem;
+    /* Meta strip — now BELOW the cover, not on top of it */
+    .cover-meta {
       display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 16px;
+      background: rgba(16,185,129,0.04);
+      border-bottom: 1px solid rgba(16,185,129,0.12);
       direction: ltr;
+      flex-shrink: 0;
     }
     .cover-month-badge {
       font-family: var(--mono);
@@ -401,7 +404,7 @@
     const reports = [
       {
         title: "التقرير الشهري — أبريل 2026",
-        desc: "شهر اتّسعت فيه دائرة هجمات الفدية لتطال 772 ضحيةً عبر 70 مجموعة نشطة. نتوقّف عند توجيه CISA الطارئ ED 26-03 الذي استهدف ثغرات Cisco SD-WAN، ونرصد كيف أصبحت سلسلة الإمداد بوّابة الاختراق الأبرز، من Vimeo إلى ADT وVercel وAmtrak.",
+        desc: "قراءة تحليلية لشهر أبريل، من اتّساع دائرة هجمات الفدية وتشظّي المشهد إلى مجموعات أكثر، مروراً بتوجيه CISA الطارئ لثغرات Cisco SD-WAN، وصولاً إلى تصاعد اختراقات سلاسل الإمداد التي باتت بوّابة الخصوم الأقصر نحو الضحايا.",
         tag: "2026",
         date: "Apr 2026",
         size: "1.52 MB",
@@ -417,7 +420,7 @@
       },
       {
         title: "التقرير الشهري — فبراير 2026",
-        desc: "680 ضحيةً جديدة، و54 مجموعة فدية نشطة، وثغرة BeyondTrust الحرجة CVE-2026-1731 التي استُغِلّت خلال أربعة أيام فقط من الإفصاح. نفكّك المشهد بأكمله، من عودة استهداف القطاع الصحي إلى أبرز الاختراقات التي طالت Wynn Resorts وBridgePay وANSI.",
+        desc: "قراءة تحليلية لشهر فبراير، من ثبات نشاط عصابات الفدية عند مستوى مرتفع، إلى ثغرة BeyondTrust الحرجة التي انتقلت من الإفصاح إلى الاستغلال الفعلي خلال أيام، مع رصد لعودة استهداف القطاع الصحي وأبرز الاختراقات التي طالت كبرى المؤسسات.",
         tag: "2026",
         date: "Feb 2026",
         size: "1.21 MB",
@@ -425,7 +428,7 @@
       },
       {
         title: "التقرير الشهري — يناير 2026",
-        desc: "بداية العام السيبراني كما رأيناها: ثغرات نشطة دخلت حيّز الاستغلال، حملات خصوم تتجدّد، وحوادث جوهرية رسمت خط الأساس لما تبعها من شهور. نقدّم خلاصة هذه الفترة في صورة مكثّفة.",
+        desc: "قراءة تحليلية لمستهلّ العام السيبراني، من الثغرات النشطة التي دخلت حيّز الاستغلال، إلى حملات الخصوم المتجدّدة، وأبرز الحوادث التي رسمت ملامح ما تبعها من شهور.",
         tag: "2026",
         date: "Jan 2026",
         size: "3.67 MB",
@@ -472,10 +475,11 @@
               <span class="skeleton-label">جارٍ تحميل الغلاف…</span>
             </div>
             <canvas id="canvas-${globalIdx}"></canvas>
-            <div class="cover-overlay">
-              <span class="cover-month-badge">${r.date}</span>
-              <span class="cover-size-label">${r.size}</span>
-            </div>
+          </div>
+ 
+          <div class="cover-meta">
+            <span class="cover-month-badge">${r.date}</span>
+            <span class="cover-size-label">${r.size}</span>
           </div>
  
           <div class="card-body">
