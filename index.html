@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>مسبار </title>
+  <title>مسبار — التقارير</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -323,10 +323,10 @@
   <section class="hero-section">
     <div class="hero-content scroll-reveal">
       <h1 class="hero-title">
-        التقارير الشهرية
+        <span class="emerald-text">تقارير</span> الأمن السيبراني
       </h1>
       <p class="hero-subtitle">
-       شهر بشهر، نقرأ لك المشهد السيبراني. ثغرات، هجمات، وأحداث تستحق الانتباه
+        شهر بشهر، نقرأ لك المشهد السيبراني. ثغرات، هجمات، وأحداث تستحق الانتباه.
       </p>
       <div class="search-wrapper">
         <div class="search-box">
@@ -347,9 +347,10 @@
  
   <section id="reports" class="reports-section">
     <div class="scroll-reveal">
+      <p class="section-label">Published Research</p>
       <h2 class="section-title">اطّلع على آخر <span class="emerald-text">التقارير</span></h2>
       <p class="section-subtitle">
-نراقب، نرصد، ونحلّل. ثم نكتب لك ما يهم فقط
+        نراقب، نرصد، ونحلّل. ثم نكتب لك ما يهم فقط.
       </p>
     </div>
  
@@ -399,32 +400,32 @@
  
     const reports = [
       {
-        title: "التقرير الشهري للتهديدات — أبريل 2026",
-        desc: "تقييم الأمن السيبراني لشهر أبريل 2026 — يغطي 772 ضحية للفدية عبر 70 مجموعة نشطة، توجيه CISA الطارئ ED 26-03 لثغرات Cisco SD-WAN، حوادث سلسلة الإمداد (Vimeo، ADT، Vercel، Amtrak)، وارتفاع تهديدات استهداف طبقة الإدارة.",
+        title: "التقرير الشهري — أبريل 2026",
+        desc: "شهر اتّسعت فيه دائرة هجمات الفدية لتطال 772 ضحيةً عبر 70 مجموعة نشطة. نتوقّف عند توجيه CISA الطارئ ED 26-03 الذي استهدف ثغرات Cisco SD-WAN، ونرصد كيف أصبحت سلسلة الإمداد بوّابة الاختراق الأبرز، من Vimeo إلى ADT وVercel وAmtrak.",
         tag: "2026",
         date: "Apr 2026",
         size: "1.52 MB",
         file: "Monthly-Threat-Report-April.pdf"
       },
       {
-        title: "التقرير الشهري للتهديدات — مارس 2026",
-        desc: "تقرير استخباراتي شهري للأمن السيبراني يغطي نشاط برامج الفدية، اتجاهات الثغرات، الثغرات المُستغَلة المعروفة (KEV)، وأكثر الموردين تأثراً عبر مشهد التهديدات في عام 2026.",
+        title: "التقرير الشهري — مارس 2026",
+        desc: "قراءة تحليلية لأبرز ما جرى في الفضاء السيبراني خلال مارس، من تصاعد نشاط عصابات الفدية، إلى الثغرات المُستغَلة فعلياً (KEV)، والموردين الذين تصدّروا قوائم الضحايا هذا الشهر.",
         tag: "2026",
         date: "Mar 2026",
         size: "2.03 MB",
         file: "Monthly-Threat-Report-March.pdf"
       },
       {
-        title: "التقرير الشهري للتهديدات — فبراير 2026",
-        desc: "تقييم شهري للتهديدات يغطي 680 ضحية للفدية عبر 54 مجموعة، خط زمني استغلال ثغرة BeyondTrust الحرجة CVE-2026-1731، عودة استهداف قطاع الرعاية الصحية، وأبرز الهجمات على Wynn Resorts و BridgePay و Conpet و ANSI.",
+        title: "التقرير الشهري — فبراير 2026",
+        desc: "680 ضحيةً جديدة، و54 مجموعة فدية نشطة، وثغرة BeyondTrust الحرجة CVE-2026-1731 التي استُغِلّت خلال أربعة أيام فقط من الإفصاح. نفكّك المشهد بأكمله، من عودة استهداف القطاع الصحي إلى أبرز الاختراقات التي طالت Wynn Resorts وBridgePay وANSI.",
         tag: "2026",
         date: "Feb 2026",
         size: "1.21 MB",
         file: "Monthly-Threat-Report-February.pdf"
       },
       {
-        title: "التقرير الشهري للتهديدات — يناير 2026",
-        desc: "ملخص استخبارات التهديدات يغطي الفترة من يناير حتى منتصف فبراير 2026 — يتتبع الثغرات النشطة، حملات الخصوم، الثغرات المنشورة حديثاً، والحوادث الأمنية الجوهرية المرصودة خلال الفترة.",
+        title: "التقرير الشهري — يناير 2026",
+        desc: "بداية العام السيبراني كما رأيناها: ثغرات نشطة دخلت حيّز الاستغلال، حملات خصوم تتجدّد، وحوادث جوهرية رسمت خط الأساس لما تبعها من شهور. نقدّم خلاصة هذه الفترة في صورة مكثّفة.",
         tag: "2026",
         date: "Jan 2026",
         size: "3.67 MB",
